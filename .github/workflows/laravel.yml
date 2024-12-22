@@ -27,6 +27,10 @@ jobs:
       working-directory: backend
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
+    - name: Update Composer
+      working-directory: backend
+      run: composer update --no-progress
+
     - name: Install Dependencies
       working-directory: backend
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
